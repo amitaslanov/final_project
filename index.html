@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Price Prediction</title>
+</head>
+<body>
+    <h1>Property Price Prediction</h1>
+    <form method="POST" action="/">
+        <h2>Choose City (only one):</h2>
+        <label><input type="checkbox" name="City_שוהם" value="1"> City_  שוהם</label>
+        <label><input type="checkbox" name="City_אילת" value="1"> City_אילת</label>
+        <label><input type="checkbox" name="City_בית שאן" value="1"> City_בית שאן</label>
+        <label><input type="checkbox" name="City_בת ים" value="1"> City_בת ים</label>
+        <label><input type="checkbox" name="City_גבעת שמואל" value="1"> City_גבעת שמואל</label>
+        <label><input type="checkbox" name="City_חולון" value="1"> City_חולון</label>
+        <label><input type="checkbox" name="City_ירושלים" value="1"> City_ירושלים</label>
+        <label><input type="checkbox" name="City_נהרייה" value="1"> City_נהרייה</label>
+        <label><input type="checkbox" name="City_נתניה" value="1"> City_נתניה</label>
+        <label><input type="checkbox" name="City_צפת" value="1"> City_צפת</label>
+        <label><input type="checkbox" name="City_קרית ביאליק" value="1"> City_קרית ביאליק</label>
+        <label><input type="checkbox" name="City_רחובות" value="1"> City_רחובות</label>
+        <label><input type="checkbox" name="City_תל אביב" value="1"> City_תל אביב</label>
+
+        <h2>Choose Property Type (only one):</h2>
+        <label><input type="checkbox" name="type_אחר" value="1"> type_אחר</label>
+        <label><input type="checkbox" name="type_בית פרטי" value="1"> type_בית פרטי</label>
+        <label><input type="checkbox" name="type_בניין" value="1"> type_בניין</label>
+        <label><input type="checkbox" name="type_דו משפחתי" value="1"> type_דו משפחתי</label>
+        <label><input type="checkbox" name="type_דופלקס" value="1"> type_דופלקס</label>
+        <label><input type="checkbox" name="type_דירה" value="1"> type_דירה</label>
+        <label><input type="checkbox" name="type_דירת גג" value="1"> type_דירת גג</label>
+        <label><input type="checkbox" name="type_דירת גן" value="1"> type_דירת גן</label>
+        <label><input type="checkbox" name="type_טריפלקס" value="1"> type_טריפלקס</label>
+        <label><input type="checkbox" name="type_מיני פנטהאוז" value="1"> type_מיני פנטהאוז</label>
+        <label><input type="checkbox" name="type_נחלה" value="1"> type_נחלה</label>
+        <label><input type="checkbox" name="type_קוטג טורי" value="1"> type_קוטג טורי</label>
+
+        <h2>Choose Property Condition (only one):</h2>
+        <label><input type="checkbox" name="condition _None" value="1"> condition _None</label>
+        <label><input type="checkbox" name="condition_דורש שיפוץ" value="1"> condition_דורש שיפוץ</label>
+        <label><input type="checkbox" name="condition_חדש" value="1"> condition_חדש</label>
+        <label><input type="checkbox" name="condition_ישן" value="1"> condition _ישן</label>
+        <label><input type="checkbox" name="condition_משופץ" value="1"> condition_משופץ</label>
+        <label><input type="checkbox" name="condition_שמור" value="1"> condition_שמור</label>
+
+        <h2>Property Extras:</h2>
+        <label><input type="checkbox" name="hasElevator" value="1"> hasElevator</label>
+        <label><input type="checkbox" name="hasBars" value="1"> hasBars</label>
+        <label><input type="checkbox" name="hasStorage" value="1"> hasStorage</label>
+        <label><input type="checkbox" name="hasAirCondition" value="1"> hasAirCondition</label>
+        <label><input type="checkbox" name="hasBalcony" value="1"> hasBalcony</label>
+        <label><input type="checkbox" name="handicapFriendly" value="1"> handicapFriendly</label>
+
+        <h2>Number of Rooms:</h2>
+        <input type="number" name="room_number" min="0" step="1">
+
+        <h2>Area:</h2>
+        <input type="number" name="Area" min="0" step="0.01">
+
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction Result:</h2>
+        <p>The predicted price is: {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
