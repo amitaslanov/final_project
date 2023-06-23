@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Price Prediction</title>
+</head>
+<body>
+    <h1>Property Price Prediction</h1>
+    <form method="POST" action="/predict">
+        <h2>Choose City (only one - change the selected option to 1):</h2>
+        <label>City_שוהם:
+            <select name="City_שוהם">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_אילת:
+            <select name="City_אילת">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_ביתשאן:
+            <select name="City_ביתשאן">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_בתים:
+            <select name="City_בתים">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_גבעתשמואל:
+            <select name="City_גבעתשמואל">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_חולון:
+            <select name="City_חולון">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_ירושלים:
+            <select name="City_ירושלים">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_נהרייה:
+            <select name="City_נהרייה">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_נתניה:
+            <select name="City_נתניה">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_צפת:
+            <select name="City_צפת">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_קריתביאליק:
+            <select name="City_קריתביאליק">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_רחובות:
+            <select name="City_רחובות">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>City_תלאביב:
+            <select name="City_תלאביב">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+
+        <h2>Choose Property Type (only one - change the selected option to 1):</h2>
+        <label>type_אחר:
+            <select name="type_אחר">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_ביתפרטי:
+            <select name="type_ביתפרטי">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_בניין:
+            <select name="type_בניין">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_דומשפחתי:
+            <select name="type_דומשפחתי">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_דופלקס:
+            <select name="type_דופלקס">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_דירה:
+            <select name="type_דירה">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_דירתגג:
+            <select name="type_דירתגג">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_דירתגן:
+            <select name="type_דירתגן">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_טריפלקס:
+            <select name="type_טריפלקס">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_מיניפנטהאוז:
+            <select name="type_מיניפנטהאוז">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_נחלה:
+            <select name="type_נחלה">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>type_קוטגטורי:
+            <select name="type_קוטגטורי">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+
+        <h2>Choose Property Condition (only one - change the selected option to 1):</h2>
+        <label>condition_None:
+            <select name="condition_None">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>condition_דורששיפוץ:
+            <select name="condition_דורששיפוץ">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>condition_חדש:
+            <select name="condition_חדש">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>condition_ישן:
+            <select name="condition_ישן">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>condition_משופץ:
+            <select name="condition_משופץ">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>condition_שמור:
+            <select name="condition_שמור">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+
+        <h2>Property Extras - (change to 1 every feature your property has):</h2>
+
+        <label>hasElevator:
+            <select name="hasElevator">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+           <label>hasBars:
+            <select name="hasBars">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+        <label>hasStorage:
+            <select name="hasStorage">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+           <label>hasAirCondition:
+            <select name="hasAirCondition">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+           <label>hasBalcony:
+            <select name="hasBalcony">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+           <label>handicapFriendly:
+            <select name="handicapFriendly">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </label>
+
+
+        <h2>Number of Rooms:</h2>
+        <input type="number" name="room_number" min="0" step="1">
+
+        <h2>Area:</h2>
+        <input type="number" name="Area" min="0" step="0.01">
+
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction Result:</h2>
+        <p>The predicted price is: {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
