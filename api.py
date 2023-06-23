@@ -9,14 +9,14 @@ model = joblib.load('trained_model.pkl')
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('price_prediction.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.form
     print (data)
     room_number = int(data['room_number'])
-    area = float(data['Area'])
+    Area = float(data['Area'])
     hasElevator = int(data['hasElevator'])
     hasBars = int(data['hasBars'])
     hasStorage = int(data['hasStorage'])
@@ -59,7 +59,7 @@ def predict():
     # Create a DataFrame with the input features
     input_data = pd.DataFrame({
         'room_number': [room_number],
-        'area': [area],
+        'Area': [Area],
         'hasElevator': [hasElevator],
         'hasBars': [hasBars],
         'hasStorage': [hasStorage],
