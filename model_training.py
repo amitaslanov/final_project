@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 71,
    "id": "e52d2ac7-5677-4169-a691-71b83222e2cb",
    "metadata": {},
    "outputs": [],
@@ -31,7 +31,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 72,
    "id": "50c11f8f-c67d-4329-87f6-60c117e58f41",
    "metadata": {},
    "outputs": [
@@ -39,7 +39,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "C:\\Users\\amits\\AppData\\Local\\Temp\\ipykernel_16088\\348182227.py:34: FutureWarning: The default value of regex will change from True to False in a future version.\n",
+      "C:\\Users\\amits\\AppData\\Local\\Temp\\ipykernel_16088\\2939205284.py:45: FutureWarning: The default value of regex will change from True to False in a future version.\n",
       "  df.loc[:, 'floor_out_of'] = df['floor_out_of'].str.replace('\\s+', ' ')\n"
      ]
     }
@@ -48,7 +48,8 @@
     "# \"City\" column\n",
     "df.loc[:, 'City'] = df['City'].str.replace(' נהריה', 'נהריה')\n",
     "df.loc[:, 'City'] = df['City'].str.replace('נהריה', 'נהרייה')\n",
-    "df.loc[:, 'City'] = df['City'].str.replace('שוהם', ' שוהם')\n",
+    "df.loc[:, 'City'] = df['City'].str.replace(' שוהם','שוהם')\n",
+    "df.loc[:, 'City'] = df['City'].str.replace('  שוהם','שוהם')\n",
     "\n",
     "# Clean the \"price\" column\n",
     "df.loc[:, 'price'] = df['price'].astype(str).str.replace('[^\\d.]', '', regex=True)\n",
@@ -178,7 +179,33 @@
     "df = df.drop_duplicates()\n",
     "\n",
     "# Optional: Reset the index of the DataFrame\n",
-    "df = df.reset_index(drop=True)\n"
+    "df = df.reset_index(drop=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "1baf6671-9eeb-49fa-a269-92c2d6e814a5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array(['פתח תקווה', 'נתניה', 'באר שבע', 'הרצליה', 'אריאל', 'דימונה',\n",
+       "       'רחובות', 'גבעת שמואל', 'ירושלים', 'שוהם', 'כפר סבא', 'רעננה',\n",
+       "       'נהרייה', 'זכרון יעקב', 'קרית ביאליק', 'חיפה', 'הוד השרון',\n",
+       "       'תל אביב', 'ראשון לציון', 'יהוד מונוסון', 'נס ציונה', 'אילת',\n",
+       "       'חולון', 'מודיעין מכבים רעות', 'צפת', 'בת ים', 'רמת גן',\n",
+       "       'נוף הגליל', 'בית שאן'], dtype=object)"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df['City'].unique()"
    ]
   },
   {
@@ -191,7 +218,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 74,
    "id": "6b1920b2-19fe-44d6-9665-4b05c6109dcf",
    "metadata": {},
    "outputs": [],
@@ -214,7 +241,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 75,
    "id": "959904b7-77f6-49fd-b901-5e7caeb70bd4",
    "metadata": {
     "tags": []
@@ -225,34 +252,34 @@
      "output_type": "stream",
      "text": [
       "Selected Features:\n",
+      "room_number\n",
       "hasElevator\n",
-      "hasBars\n",
       "hasStorage\n",
       "hasAirCondition\n",
       "hasBalcony\n",
       "handicapFriendly\n",
-      "City_שוהם\n",
       "City_אילת\n",
       "City_ביתשאן\n",
       "City_בתים\n",
       "City_גבעתשמואל\n",
+      "City_הודהשרון\n",
+      "City_הרצליה\n",
       "City_חולון\n",
       "City_ירושלים\n",
-      "City_נהרייה\n",
-      "City_נתניה\n",
+      "City_כפרסבא\n",
       "City_צפת\n",
       "City_קריתביאליק\n",
       "City_רחובות\n",
+      "City_שוהם\n",
       "City_תלאביב\n",
       "type_אחר\n",
-      "type_ביתפרטי\n",
       "type_בניין\n",
       "type_דומשפחתי\n",
       "type_דופלקס\n",
       "type_דירה\n",
-      "type_דירתגג\n",
       "type_דירתגן\n",
       "type_טריפלקס\n",
+      "type_מגרש\n",
       "type_מיניפנטהאוז\n",
       "type_נחלה\n",
       "type_קוטגטורי\n",
@@ -297,7 +324,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 76,
    "id": "74076f84-58d1-4b46-9f61-c05ec327052f",
    "metadata": {},
    "outputs": [],
@@ -310,29 +337,54 @@
    ]
   },
   {
-   "cell_type": "markdown",
-   "id": "05b01951-e5fa-45e5-86b5-2a0039935b80",
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "a845bb3c-e9d7-47a2-a16a-6af3bed36687",
    "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['room_number', 'hasElevator', 'hasStorage', 'hasAirCondition',\n",
+       "       'hasBalcony', 'handicapFriendly', 'City_אילת', 'City_ביתשאן',\n",
+       "       'City_בתים', 'City_גבעתשמואל', 'City_הודהשרון', 'City_הרצליה',\n",
+       "       'City_חולון', 'City_ירושלים', 'City_כפרסבא', 'City_צפת',\n",
+       "       'City_קריתביאליק', 'City_רחובות', 'City_שוהם', 'City_תלאביב',\n",
+       "       'type_אחר', 'type_בניין', 'type_דומשפחתי', 'type_דופלקס', 'type_דירה',\n",
+       "       'type_דירתגן', 'type_טריפלקס', 'type_מגרש', 'type_מיניפנטהאוז',\n",
+       "       'type_נחלה', 'type_קוטגטורי', 'condition_None', 'condition_דורששיפוץ',\n",
+       "       'condition_חדש', 'condition_ישן', 'condition_משופץ', 'condition_שמור',\n",
+       "       'room_number', 'Area'],\n",
+       "      dtype='object')"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "#### Elastic Net Prediction Model"
+    "selected_features"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
-   "id": "5215682e-dc86-4ece-9be3-494ea2693c50",
+   "execution_count": 78,
+   "id": "b9fdc9b5-e73c-437f-a970-6fc3ad063d3e",
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Mean Squared Error (MSE): 3248272135008.5693\n",
-      "Mean Absolute Error (MAE): 1458219.3319214082\n",
-      "R-squared (R2) Score: -0.014048503651595823\n",
-      "Cross-Validation Mean Squared Error: [4.94297985e+12 3.53804571e+12 4.70088727e+12 4.06162900e+12\n",
-      " 4.88820960e+12 4.33985147e+12 4.52670217e+12 5.66082540e+12\n",
-      " 3.60508087e+12 2.94614559e+15]\n"
+      "Mean Squared Error: 3460591997056.127\n",
+      "Mean Absolute Error: 1499137.4468417477\n",
+      "R^2 Score: -0.08033070829953592\n",
+      "Cross-Validation RMSE Scores: [ 1468197.13834565 48169095.51831906  1935255.83353739  1714955.79007963\n",
+      "  2136879.09811112  1760686.28973379  2081090.34565001  2314148.86294451\n",
+      "  1548544.00735459  2193657.82158172]\n",
+      "Mean Cross-Validation RMSE: 6532251.070565747\n",
+      "Standard Deviation of Cross-Validation RMSE: 13881510.103596123\n"
      ]
     }
    ],
@@ -340,6 +392,7 @@
     "from sklearn.linear_model import ElasticNet\n",
     "from sklearn.model_selection import train_test_split, cross_val_score\n",
     "from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score\n",
+    "import numpy as np\n",
     "\n",
     "# Assuming selected_features contains the list of selected feature names\n",
     "X = encoded_df[selected_features]\n",
@@ -352,29 +405,40 @@
     "model = ElasticNet(alpha=0.5, l1_ratio=0.5)  # Adjust alpha and l1_ratio as needed\n",
     "model.fit(X_train, y_train)\n",
     "\n",
-    "# Perform cross-validation\n",
-    "cv_scores = cross_val_score(model, X_train, y_train, cv=10, scoring='neg_mean_squared_error')\n",
-    "mse_scores = -cv_scores  # Convert negative MSE scores to positive\n",
-    "\n",
     "# Predict on the test set\n",
     "y_pred = model.predict(X_test)\n",
     "\n",
-    "# Calculate performance metrics\n",
+    "# Calculate evaluation metrics\n",
     "mse = mean_squared_error(y_test, y_pred)\n",
     "mae = mean_absolute_error(y_test, y_pred)\n",
     "r2 = r2_score(y_test, y_pred)\n",
     "\n",
-    "print(\"Mean Squared Error (MSE):\", mse)\n",
-    "print(\"Mean Absolute Error (MAE):\", mae)\n",
-    "print(\"R-squared (R2) Score:\", r2)\n",
+    "print(\"Mean Squared Error:\", mse)\n",
+    "print(\"Mean Absolute Error:\", mae)\n",
+    "print(\"R^2 Score:\", r2)\n",
     "\n",
-    "# Mean squared error for each fold\n",
-    "print(\"Cross-Validation Mean Squared Error:\", mse_scores)"
+    "# Perform cross-validation\n",
+    "cv_scores = cross_val_score(model, X, y, cv=10, scoring='neg_mean_squared_error')\n",
+    "rmse_scores = np.sqrt(-cv_scores)\n",
+    "mean_rmse = np.mean(rmse_scores)\n",
+    "std_rmse = np.std(rmse_scores)\n",
+    "\n",
+    "print(\"Cross-Validation RMSE Scores:\", rmse_scores)\n",
+    "print(\"Mean Cross-Validation RMSE:\", mean_rmse)\n",
+    "print(\"Standard Deviation of Cross-Validation RMSE:\", std_rmse)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "05b01951-e5fa-45e5-86b5-2a0039935b80",
+   "metadata": {},
+   "source": [
+    "#### Elastic Net Prediction Model"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 79,
    "id": "93455609-7ca8-48e8-9e81-45379332b8e5",
    "metadata": {},
    "outputs": [
@@ -384,7 +448,7 @@
        "['trained_model.pkl']"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 79,
      "metadata": {},
      "output_type": "execute_result"
     }
