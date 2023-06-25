@@ -1,5 +1,5 @@
 # final_project
-Final project in Advanced Data Mining in Python course.
+Final project in 'Advanced Data Mining In Python' course.
 
 The model predicts the price of a property according to the inputs that the user fills in in the HTML.
 
